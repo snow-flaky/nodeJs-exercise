@@ -12,6 +12,19 @@
 //   c.next = b;
 //   circular(l) // true
 
-function circular(list) {}
+function circular(list) {
+    let tort = list.getFirst();
+    let hare = list.getFirst();
+
+    while (hare && hare.next) {
+        tort = tort.next;
+        hare = hare.next.next;
+
+        if (tort === hare) {
+            return true;
+        }
+    }
+    return false;
+}
 
 module.exports = circular;

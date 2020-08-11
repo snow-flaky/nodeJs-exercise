@@ -7,6 +7,30 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+function palindrome(cstr) {
+
+    var ccount = 0;
+    if (cstr === "") {
+        return false;
+    }
+    if ((cstr.length) % 2 === 0) {
+        ccount = (cstr.length) / 2;
+    } else {
+        if (cstr.length === 1) {
+
+            return true;
+        } else {
+            ccount = (cstr.length - 1) / 2;
+        }
+    }
+    // Loop through to check the first character to the last character and then move next
+    for (var x = 0; x < ccount; x++) {
+        // Compare characters and drop them if they do not match 
+        if (cstr[x] != cstr.slice(-1 - x)[0]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 module.exports = palindrome;
